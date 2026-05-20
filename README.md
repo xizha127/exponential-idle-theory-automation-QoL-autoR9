@@ -9,3 +9,5 @@ Combined QOL and TA script for exponential idle.
 
   This allows for R9 swapping if db increase rate is too low to reach last prestige condition.
   AutoR9 might not occour if DB increase is too rapid due to supremecy, which is mostly inconsequential.
+
+Credit mostly goes to ChatGPT for the creation of this script, I cannot provide assistance with anything if the script is malfunctioning. 

@@ -1,0 +1,35 @@
+name: Build Cookie Idler Smooth Counter
+
+on:
+  push:
+    paths:
+      - '.github/workflows/build-cookieidler-smooth.yml'
+      - 'patches/cookieidler-smooth-counter.patch'
+      - 'tools/build-cookieidler-smooth.sh'
+      - '.trigger-cookieidler-smooth'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build smoothed Cookie Idler script
+        run: bash tools/build-cookieidler-smooth.sh
+
+      - name: Commit generated script
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CookieIdler-Redux.smooth-counter.js
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+          else
+            git commit -m "Build Cookie Idler smooth counter script"
+            git push
+          fi

@@ -6,6 +6,7 @@ PATCH_FILE='patches/cookieidler-smooth-counter.patch'
 OUTPUT_FILE='CookieIdler-Redux.smooth-counter.js'
 TMP_ORIGINAL='CookieIdler - Redux.js'
 
+# Build generated raw script from upstream Redux plus local smooth-counter patch.
 curl -fsSL "$ORIGINAL_URL" -o "$TMP_ORIGINAL"
 cp "$TMP_ORIGINAL" "$OUTPUT_FILE"
 git apply --unsafe-paths --whitespace=nowarn --directory=. "$PATCH_FILE"

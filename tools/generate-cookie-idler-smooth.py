@@ -78,3 +78,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# Touch: trigger generation after workflow installation.
